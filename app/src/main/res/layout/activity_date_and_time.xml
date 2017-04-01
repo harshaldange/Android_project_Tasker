@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mohdeva.learn.tasker.ConfirmCall">
+
+
+    <RelativeLayout
+        android:layout_width="436dp"
+        android:layout_height="568dp"
+        android:layout_marginRight="-279dp"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="-6dp">
+
+        <Button
+            android:id="@+id/btn_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:elevation="11dp"
+            android:text="DATE"
+            android:layout_below="@+id/btn_time"
+            android:layout_alignStart="@+id/btn_time" />
+
+        <Button
+            android:id="@+id/btn_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:elevation="11dp"
+            android:text="TIME"
+            android:textColor="@android:color/black"
+            android:layout_alignTop="@+id/in_time"
+            android:layout_toEndOf="@+id/in_time" />
+
+        <EditText
+            android:id="@+id/in_date"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textColorLink="?attr/actionModeSplitBackground"
+            android:layout_alignBottom="@+id/btn_d"
+            android:layout_toStartOf="@+id/btn_d" />
+
+        <EditText
+            android:id="@+id/in_time"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="54dp"
+            android:textColorLink="?attr/actionModeSplitBackground"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="177dp"
+            android:layout_marginEnd="26dp"
+            android:layout_toStartOf="@+id/btn_d"
+            android:background="@android:drawable/screen_background_light_transparent"
+            android:text="Save" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

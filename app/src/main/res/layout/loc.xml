@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/confirm"
+            android:layout_alignStart="@+id/confirm"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <RadioButton
+                android:id="@+id/radioCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/radioSms"
+                android:layout_marginTop="103dp"
+                android:text="Call" />
+
+            <RadioButton
+                android:id="@+id/radioSms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radioCall"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="23dp"
+                android:text="SMS" />
+
+
+        </RadioGroup>
+
+
+        <EditText
+            android:id="@+id/smsContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:layout_below="@+id/radioGroup1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="57dp" />
+
+        <Button
+            android:id="@+id/confirm"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="76dp"
+            android:background="@color/colorPrimary"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="Confirm"
+            android:textColor="@android:color/background_light"
+            android:onClick="savenumber" />
+
+        <TextView
+            android:id="@+id/Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:text="TextView"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/Cont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/Name"
+            android:layout_below="@+id/Name"
+            android:layout_marginTop="11dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:hint="Enter Your Text Message"
+            android:layout_alignEnd="@+id/Name" />
+
+        <Button
+            android:id="@+id/btntimepicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/confirm"
+            android:layout_marginBottom="23dp"
+            android:layout_toEndOf="@+id/smsContent"
+            android:background="@color/colorPrimary"
+            android:text="Pick Time"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btndatepicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btntimepicker"
+            android:layout_alignStart="@+id/btntimepicker"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary"
+            android:text="Pick Date"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/btndatepicker"
+            android:layout_marginEnd="12dp"
+            android:layout_toStartOf="@+id/btndatepicker"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/txttime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/btntimepicker"
+            android:layout_alignStart="@+id/txtdate"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="textPersonName" />
+
+    </RelativeLayout>
+</LinearLayout>

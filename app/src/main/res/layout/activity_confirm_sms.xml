@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mohdeva.learn.tasker.ConfirmSMS">
+    <RelativeLayout
+        android:layout_width="395dp"
+        android:layout_height="587dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SMS Confirmation"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="16dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/Confirm_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_dark"
+            android:elevation="11dp"
+            android:text="Confirm"
+            android:textColor="@android:color/background_light"
+            tools:layout_editor_absoluteX="264dp"
+            tools:layout_editor_absoluteY="454dp"
+            android:layout_alignBaseline="@+id/Reject_sms"
+            android:layout_alignBottom="@+id/Reject_sms"
+            android:layout_toEndOf="@+id/textView2" />
+
+        <Button
+            android:id="@+id/Reject_sms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_red_dark"
+            android:elevation="11dp"
+            android:text="Reject"
+            android:textColor="@android:color/background_light"
+            tools:layout_editor_absoluteX="65dp"
+            tools:layout_editor_absoluteY="453dp"
+            android:layout_marginBottom="44dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/textView2" />
+
+        <EditText
+            android:id="@+id/data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="195dp"
+            tools:layout_editor_absoluteY="280dp"
+            android:layout_above="@+id/Confirm_sms"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="203dp" />
+
+        <TextView
+            android:id="@+id/contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="phone number"
+            tools:layout_editor_absoluteX="159dp"
+            tools:layout_editor_absoluteY="106dp"
+            android:layout_below="@+id/Name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp" />
+
+        <TextView
+            android:id="@+id/Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="167dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="26dp" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

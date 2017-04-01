@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--<EditText-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/contactname"-->
+            <!--android:layout_weight="1"-->
+            <!--android:completionHint="Search Name"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_toStartOf="@+id/phoneNum"-->
+            <!--android:layout_width="wrap_content" />-->
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/idList"
+            android:layout_below="@+id/phoneNum">
+        </ListView>
+
+
+        <AutoCompleteTextView
+            android:layout_height="wrap_content"
+            android:id="@+id/contactname"
+            android:layout_weight="1"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/button1"
+            android:layout_width="500dp"
+            android:layout_alignParentTop="true"
+            android:textAlignment="viewStart"
+            android:hint="Search For Contact Here"/>
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/phoneNum"
+            android:layout_weight="1"
+            android:layout_width="170dp"
+            android:layout_marginTop="43dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/button1" />
+
+        <Button
+            android:text="+"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button1"
+            android:background="@drawable/mic"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/idList" />
+
+    </RelativeLayout>
+
+</LinearLayout>

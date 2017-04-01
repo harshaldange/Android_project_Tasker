@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mohdeva.learn.tasker.ConfirmCall">
+
+
+    <RelativeLayout
+        android:layout_width="436dp"
+        android:layout_height="568dp"
+        tools:layout_editor_absoluteX="-19dp"
+        tools:layout_editor_absoluteY="-11dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="37dp"
+            android:text="Confirm Call"
+            android:textSize="18sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/contName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="62dp"
+            android:text="TextView"
+            android:textSize="18sp"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/conf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contNum"
+            android:layout_marginTop="133dp"
+            android:layout_toEndOf="@+id/textView"
+            android:background="@android:color/holo_green_dark"
+            android:text="Confirm"
+            android:textColor="@android:color/background_light" />
+
+        <TextView
+            android:id="@+id/contNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="73dp"
+            android:text="TextView"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/rej"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/conf"
+            android:layout_alignBottom="@+id/conf"
+            android:layout_toStartOf="@+id/textView"
+            android:background="@android:color/holo_red_dark"
+            android:text="Reject"
+            android:textColor="@android:color/background_light" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

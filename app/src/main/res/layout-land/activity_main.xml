@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.mohdeva.learn.tasker.MainActivity">
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:id="@+id/list"
+        android:layout_below="@+id/TEXT" />
+
+    <ImageButton
+        android:layout_height="@dimen/activity_vertical_margin"
+        android:id="@+id/Speech"
+        style="@style/Widget.AppCompat.ImageButton"
+        android:background="@android:drawable/ic_btn_speak_now"
+        android:elevation="7dp"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/list"
+        android:layout_width="58dp" />
+
+    <Button
+        android:text="+"
+        android:layout_height="wrap_content"
+        android:id="@+id/ADD"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:textColorLink="?attr/actionMenuTextColor"
+        android:textColor="@android:color/background_dark"
+        android:layout_above="@+id/list"
+        android:layout_alignParentEnd="true"
+        android:layout_width="64dp"
+        android:backgroundTint="@android:color/darker_gray" />
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="20"
+        android:id="@+id/TEXT"
+        android:textColorLink="@android:color/darker_gray"
+        style="@style/Widget.AppCompat.EditText"
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColorHint="@android:color/darker_gray"
+        android:hint="Get Stuff Done"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/Speech"
+        android:layout_width="440dp"
+        android:textSize="18sp" />
+
+</RelativeLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Date-Time"
+            android:layout_above="@+id/textView6"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="17dp" />
+
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="OR"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="24sp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_loc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView6"
+            android:layout_toStartOf="@+id/btn_d"
+            android:background="@android:color/transparent"
+            android:text="Location" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView6"
+            android:layout_toEndOf="@+id/btn_d"
+            android:background="@android:color/transparent"
+            android:text="Call/Message" />
+
+        <TextView
+            android:id="@+id/IntentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btn_d"
+            android:layout_alignParentTop="true"
+            android:text="TextView"
+            android:textColor="?android:attr/colorForeground"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
