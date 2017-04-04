@@ -1,10 +1,12 @@
 package com.mohdeva.learn.tasker;
 
 import android.Manifest;
+import android.app.Notification;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -29,7 +31,7 @@ public class MyService extends Service {
     long i = 0;
     static int x = 2; //Seconds
     DBController controller=new DBController(this);
-    public static final long INTERVAL= x * 100000;//variable for execute services every x seconds
+    public static final long INTERVAL= x * 10000;//variable for execute services every x seconds
     private Handler mHandler= new Handler(); // run on another Thread to avoid crash
     private Timer mTimer=null; // timer handling
     public Location previousBestLocation = null;
@@ -185,18 +187,50 @@ public class MyService extends Service {
 
             }
         };
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
         }
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,2000,0,locationListener);
         Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        Toast.makeText(getApplicationContext(),location.getLatitude()+":"+location.getLongitude(),Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(),location.getLatitude()+":"+location.getLongitude(),Toast.LENGTH_SHORT).show();
+        Cursor cursor=controller.getalllocationdata();
+        String[] result=new String[2];
+        float[] temp=new float[1];
+        int j;
+        if(cursor.moveToFirst()) {
+            Toast.makeText(getApplicationContext(),"Andar toh aya Re",Toast.LENGTH_SHORT).show();
+            do {
+                    result[0] = cursor.getString(0);
+                    result[1]=cursor.getString(1);
+                    Location.distanceBetween(location.getLatitude(), location.getLongitude(),Double.parseDouble(result[1]),
+                            Double.parseDouble(result[0]),temp);
+                float dim=temp[0];
+                if(dim<100)
+                {
+                    Intent intent = new Intent(this, Todo.class);
+                    // use System.currentTimeMillis() to have a unique ID for the pending intent
+                    PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
+
+                    // build notification
+                    // the addAction re-use the same intent to keep the example short
+                    Notification n  = new Notification.Builder(this)
+                            .setContentTitle("Task Reminder")
+                            .setContentText("You have Task Around here")
+                            .setSmallIcon(R.drawable.todoist_blue)
+                            .setContentIntent(pIntent)
+                            .setAutoCancel(true)
+                            .addAction(R.drawable.todoist_blue, "And more", pIntent).build();
+
+
+                    NotificationManager notificationManager =
+                            (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+                    notificationManager.notify(0, n);
+                }
+            }while(cursor.moveToNext());
+        }
+        else {
+        }
     }
 
 

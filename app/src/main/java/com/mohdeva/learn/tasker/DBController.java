@@ -197,19 +197,16 @@ public class DBController extends SQLiteOpenHelper{
        Cursor res=db.query("location",new String[] {"longitude,latitude"},"taskId="+taskid,null,null,null,null);
         return res;
     }
+    public Cursor getalllocationdata(){
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor res=db.query("location",new String[]{"longitude,latitude"},null,null,null,null,null);
+        return res;
+    }
     public Cursor gettype(int taskid) {
         String[] result;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query("tasks", new String[]{"type"}, "taskId=" + taskid, null, null, null, null);
         return cursor;
-//        result=new String[1];
-//        if(cursor.moveToFirst()) {
-//            for (int i=0;i<1;i++) {
-//                result[i] = (cursor.getString(i));
-//            }
-//            return result[0];
-//        }
-//        return null;
     }
 
 }

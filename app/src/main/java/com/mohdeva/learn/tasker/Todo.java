@@ -175,7 +175,8 @@ public class Todo extends AppCompatActivity {
                         Cursor cursor=controller.gettype(tid);
                         if(cursor.getCount()==1)
                         {
-                            if(cursor.moveToFirst()){
+                            if(cursor.moveToFirst())
+                            {
                                 type = cursor.getString(cursor.getColumnIndex("type"));
                             }
                         }
