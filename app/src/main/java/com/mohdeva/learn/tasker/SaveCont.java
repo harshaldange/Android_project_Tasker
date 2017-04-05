@@ -202,6 +202,7 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
         boolean result=controller.insertnumber(taskid,number,message,date,time);
         if(result) {
             Toast.makeText(getApplicationContext(), "Call Details Inserted", Toast.LENGTH_SHORT).show();
+            finishAffinity();
             Intent tolist=new Intent(SaveCont.this,Todo.class);
             startActivity(tolist);
         }

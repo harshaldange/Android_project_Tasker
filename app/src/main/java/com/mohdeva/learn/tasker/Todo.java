@@ -173,13 +173,10 @@ public class Todo extends AppCompatActivity {
                         String item = tasks_list.get(position);
                         int tid=controller.getId(item);
                         Cursor cursor=controller.gettype(tid);
-                        if(cursor.getCount()==1)
-                        {
                             if(cursor.moveToFirst())
                             {
-                                type = cursor.getString(cursor.getColumnIndex("type"));
+                                type = cursor.getString(0);
                             }
-                        }
 //                        Toast.makeText(getApplicationContext()," "+cursor.getCount(),Toast.LENGTH_SHORT).show();
                         controller.deleteTask(tid,type);
                         controller.deleteTask(tid,"tasks");

@@ -159,6 +159,7 @@ public class location extends FragmentActivity implements OnMapReadyCallback {
 //        taskid=controller.getId(nameString);
         boolean isdone=controller.insertLocation(taskid,lat,longi);
         if(isdone) {
+            finishAffinity();
             Toast.makeText(getApplicationContext(), "Data Inserted", Toast.LENGTH_SHORT).show();
             Intent tolist = new Intent(location.this, Todo.class);
             startActivity(tolist);
@@ -181,6 +182,7 @@ public class location extends FragmentActivity implements OnMapReadyCallback {
                 // Write your code here to invoke YES event
                 Toast.makeText(location.this, "Discarded", Toast.LENGTH_SHORT).show();
                 controller.updatetype(taskid,null);
+                finishAffinity();
                 Intent main=new Intent(location.this,Todo.class);
                 startActivity(main);
             }

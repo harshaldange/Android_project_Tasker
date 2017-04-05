@@ -105,6 +105,7 @@ public class DateAndTime extends AppCompatActivity implements View.OnClickListen
             if(isdone)
             {
                 Toast.makeText(getApplicationContext(),"Date Inserted",Toast.LENGTH_SHORT).show();
+                finishAffinity();
                 Intent tolist=new Intent(DateAndTime.this,Todo.class);
                 startActivity(tolist);
             }

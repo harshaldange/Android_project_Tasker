@@ -39,12 +39,14 @@ public class MainAfterSelected extends AppCompatActivity {
         t.setVisibility(View.INVISIBLE);
     }
     public void onBackPressed(){
+        finishAffinity();
         Intent main=new Intent(MainAfterSelected.this,Todo.class);
         startActivity(main);
     }
     public void showlocation(View view)
     {
 //        Toast.makeText(getApplicationContext(),"Aa raha hai "+taskid,Toast.LENGTH_SHORT).show();
+        finishAffinity();
         Intent x=new Intent(MainAfterSelected.this,location.class);
         x.putExtra("Datacont",nameString);
         x.putExtra("taskid",taskid);

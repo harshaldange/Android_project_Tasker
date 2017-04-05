@@ -1,6 +1,4 @@
-package com.mohdeva.learn.tasker; /**
- * Created by Mohnish_Devadiga on 17/03/17.
- */
+package com.mohdeva.learn.tasker;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.StringTokenizer;
@@ -117,7 +115,7 @@ public class DBController extends SQLiteOpenHelper{
     public void deleteTask(int id,String tablename) {
         Log.d(LOGCAT,"delete");
         SQLiteDatabase database = this.getWritableDatabase();
-        String deleteQuery = "DELETE FROM "+tablename+" where taskId= "+id;
+        String deleteQuery = "DELETE FROM "+tablename+" where taskId="+id;
         Log.d("query",deleteQuery);
         database.execSQL(deleteQuery);
     }
@@ -202,10 +200,14 @@ public class DBController extends SQLiteOpenHelper{
         Cursor res=db.query("location",new String[]{"longitude,latitude"},null,null,null,null,null);
         return res;
     }
+    public Cursor call_smsdata(){
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor res=db.query("call_message",new String[]{"taskId,number,message,date,time"},null,null,null,null,null);
+        return res;
+    }
     public Cursor gettype(int taskid) {
-        String[] result;
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query("tasks", new String[]{"type"}, "taskId=" + taskid, null, null, null, null);
+        Cursor cursor = db.query("tasks", new String[]{"type"},"taskId="+taskid, null, null, null, null);
         return cursor;
     }
 
