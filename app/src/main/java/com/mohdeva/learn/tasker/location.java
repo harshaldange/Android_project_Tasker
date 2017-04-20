@@ -63,6 +63,7 @@ public class location extends FragmentActivity implements OnMapReadyCallback {
 //            nameString = (String) savedInstanceState.getSerializable("Datacont");
 //        }
         setContentView(R.layout.activity_location);
+        Toast.makeText(getApplicationContext(),nameString,Toast.LENGTH_SHORT).show();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -156,7 +157,6 @@ public class location extends FragmentActivity implements OnMapReadyCallback {
     }
     public void setlatlong(View view)
     {
-//        taskid=controller.getId(nameString);
         boolean isdone=controller.insertLocation(taskid,lat,longi);
         if(isdone) {
             finishAffinity();
@@ -181,9 +181,10 @@ public class location extends FragmentActivity implements OnMapReadyCallback {
             public void onClick(DialogInterface dialog,int which) {
                 // Write your code here to invoke YES event
                 Toast.makeText(location.this, "Discarded", Toast.LENGTH_SHORT).show();
+                if(issaved==0)
                 controller.updatetype(taskid,null);
                 finishAffinity();
-                Intent main=new Intent(location.this,Todo.class);
+                Intent main=new Intent(location.this,Main.class);
                 startActivity(main);
             }
         });

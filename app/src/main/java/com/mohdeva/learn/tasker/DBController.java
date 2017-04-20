@@ -30,7 +30,7 @@ public class DBController extends SQLiteOpenHelper{
         query = "CREATE TABLE time_date (taskId INTEGER, date TEXT, time TEXT )";
         database.execSQL(query);
         Log.d(LOGCAT,"time_date Created");
-        query = "CREATE TABLE call_message (taskId INTEGER, number TEXT, message TEXT , date TEXT , time TEXT)";
+        query = "CREATE TABLE call_message (taskId INTEGER, number TEXT, name TEXT, message TEXT , date TEXT , time TEXT,type int)";
         database.execSQL(query);
         Log.d(LOGCAT,"time_date Created");
 
@@ -91,7 +91,7 @@ public class DBController extends SQLiteOpenHelper{
         else
             return true;
     }
-    public boolean insertnumber(int id,String number,String message,String date,String time)
+    public boolean insertnumber(int id,String number,String name,String message,String date,String time,int type)
     {
         SQLiteDatabase database=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
@@ -100,9 +100,11 @@ public class DBController extends SQLiteOpenHelper{
         //time=String.valueOf(t);
         contentValues.put("taskId",id);
         contentValues.put("number",number);
+        contentValues.put("name",name);
         contentValues.put("message",message);
         contentValues.put("date",date);
         contentValues.put("time",time);
+        contentValues.put("type",type);
         long result1=database.insert("call_message",null,contentValues);
         database.close();
         if(result1==-1)
@@ -197,18 +199,34 @@ public class DBController extends SQLiteOpenHelper{
     }
     public Cursor getalllocationdata(){
         SQLiteDatabase db=this.getReadableDatabase();
-        Cursor res=db.query("location",new String[]{"longitude,latitude"},null,null,null,null,null);
+        Cursor res=db.query("location",new String[]{"taskId,longitude,latitude"},null,null,null,null,null);
         return res;
     }
     public Cursor call_smsdata(){
         SQLiteDatabase db=this.getReadableDatabase();
-        Cursor res=db.query("call_message",new String[]{"taskId,number,message,date,time"},null,null,null,null,null);
+        Cursor res=db.query("call_message",new String[]{"taskId,number,name,message,date,time,type"},null,null,null,null,null);
+        return res;
+    }
+    public Cursor timedata(){
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor res=db.query("time_date",new String[]{"taskId,date,time"},null,null,null,null,null);
         return res;
     }
     public Cursor gettype(int taskid) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query("tasks", new String[]{"type"},"taskId="+taskid, null, null, null, null);
         return cursor;
+    }
+    public String getTaskName(int id)
+    {
+        String tname=null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("tasks", new String[]{"taskName"},"taskId="+id, null, null, null, null);
+        if(cursor.moveToFirst())
+        {
+            tname=cursor.getString(0);
+        }
+        return tname;
     }
 
 }

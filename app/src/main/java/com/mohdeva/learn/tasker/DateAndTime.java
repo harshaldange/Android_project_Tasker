@@ -27,8 +27,7 @@ public class DateAndTime extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_and_time);
         Intent pit=getIntent();
-        taskid=pit.getIntExtra("ID",-1);
-        issaved=pit.getIntExtra("Issaved",0);
+        taskid=pit.getIntExtra("taskid",-1);
 
         setTitle("Date And Time");
 
@@ -100,7 +99,7 @@ public class DateAndTime extends AppCompatActivity implements View.OnClickListen
         }
         if (v == btnSave){
 
-            Toast.makeText(getApplicationContext(),date+":"+time,Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(),date+":"+time,Toast.LENGTH_SHORT).show();
             boolean isdone=controller.insertTime(taskid,date,time);
             if(isdone)
             {

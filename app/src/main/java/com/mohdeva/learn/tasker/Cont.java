@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 public class Cont extends AppCompatActivity {
     ListView listView;
+    int taskid;
     EditText contNum;
     Button Add;
     ListView lv;
@@ -34,6 +35,8 @@ public class Cont extends AppCompatActivity {
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cont);
+        Intent pit=getIntent();
+        taskid=pit.getIntExtra("taskid",-1);
         listView = (ListView) findViewById(R.id.idList);
 
         setTitle("Select Contact");
@@ -92,6 +95,7 @@ public class Cont extends AppCompatActivity {
                     String strName = Name+"::"+Cont;
                     Intent i = new Intent(Cont.this, SaveCont.class);
                     i.putExtra("Data", strName);
+                    i.putExtra("taskid",taskid);
                     Toast.makeText(Cont.this,strName, Toast.LENGTH_SHORT).show();
                     startActivity(i);
 

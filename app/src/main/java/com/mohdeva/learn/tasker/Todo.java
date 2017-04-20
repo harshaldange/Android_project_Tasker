@@ -68,7 +68,6 @@ public class Todo extends AppCompatActivity {
             case R.id.item2:
                 Intent i = new Intent(Todo.this, ChangePassword.class);
                 startActivity(i);
-                finish();
                 return true;
             case R.id.item3:
                 Intent x = new Intent(Todo.this, Developers.class);
@@ -169,16 +168,16 @@ public class Todo extends AppCompatActivity {
                 alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int which) {
                         // Write your code here to invoke YES event
-                        String type = "tasks";
+                        String type[]=new String[1];
                         String item = tasks_list.get(position);
                         int tid=controller.getId(item);
                         Cursor cursor=controller.gettype(tid);
                             if(cursor.moveToFirst())
                             {
-                                type = cursor.getString(0);
+                                type[0]= cursor.getString(0);
                             }
 //                        Toast.makeText(getApplicationContext()," "+cursor.getCount(),Toast.LENGTH_SHORT).show();
-                        controller.deleteTask(tid,type);
+                        controller.deleteTask(tid,type[0]);
                         controller.deleteTask(tid,"tasks");
                         tasks_list.remove(position);
                         arrayAdapter.notifyDataSetChanged();
